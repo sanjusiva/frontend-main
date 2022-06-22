@@ -4,6 +4,6 @@ export class User {
     email: string='';
     phone: string='';
     password: string='';
-    paidCourse_id:Array<string>=[];
+    paidCourse_id:Array<any>=[];
     user_type?:string='';
 }
