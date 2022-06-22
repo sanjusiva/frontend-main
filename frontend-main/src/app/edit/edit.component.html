@@ -1,0 +1,33 @@
+
+<table border="1">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Link1</th>
+        <th>Link2</th>
+        <th>Link3</th>
+        <th>Video1</th>
+        <th>Video2</th>
+        <th>Video3</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let mat of materialService.materials">
+      <td>{{mat.Domain}}</td>
+      <td>{{mat.link1}</td>
+      <td>{{mat.link2}</td>
+      <td>{{mat.link3}</td>
+      <td>{{mat.video1}</td>
+      <td>{{mat.video2}</td>
+      <td>{{mat.video3}</td>
+      <td>{{mat.cost}}</td>
+      <!-- <td>
+          <button class="action-btn" (click)="onEdit(mat)">
+            <i class="material-icons">edit</i>
+          </button>
+          <button class="action-btn" (click)="onDelete(mat._id)">
+            <i class="material-icons">delete</i>
+          </button>
+        </td> -->
+    </tr>
+  </table> 

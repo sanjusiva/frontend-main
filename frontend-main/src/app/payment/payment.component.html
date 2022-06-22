@@ -1,0 +1,13 @@
+<h2>Payment</h2>
+<form #paymentForm="ngForm">
+    <label>Amount</label>
+    <input type="text"  [(ngModel)]="cost" name="cost" value="cost"readonly><br>
+    <label>Course Id</label>
+    <input type="text"  [(ngModel)]="paidCourse_id" name="paidCourse_id" readonly><br>
+    <input type="button" value="Buy" (click)="onSubmit()">
+    <input type="button" value="Back" routerLink="/course">
+    
+</form>
+
+
+

@@ -1,0 +1,33 @@
+<table border="1">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Course ID</th>
+        <th>Link1</th>
+        <th>Link2</th>
+        <th>Link3</th>
+        <th>Video1</th>
+        <th>Video2</th>
+        <th>Video3</th>
+        <th>Cost</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let mat of materialService.materials">
+      <td>{{mat.Domain}}</td>
+      <td>{{mat.course_id}}</td>
+      <td>{{mat.link1}}</td>
+      <td>{{mat.link2}}</td>
+      <td>{{mat.link3}}</td>
+      <td>{{mat.video1}}</td>
+      <td>{{mat.video2}}</td>
+      <td>{{mat.video3}}</td>
+      <td>{{mat.cost}}</td>
+      <td>
+        <button class="btn btn-info"  [routerLink]="['/material',mat._id]" >Edit</button>
+        <button class="btn btn-danger mx-3"  (click)="onDelete(mat._id)">Remove</button>
+      </td>
+    </tr>
+  </table> 
+  <button class="btn btn-primary" [routerLink]="['/material']">Add</button>
+

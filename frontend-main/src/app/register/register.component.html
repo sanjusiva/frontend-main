@@ -1,0 +1,36 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <input type="hidden" name="_id" #_id="ngModel"
+        [(ngModel)]="userService.selectedUser._id">
+        <div>
+            <label> Name: </label><br>
+            <input type="text" name="name" #name="ngModel"
+                [(ngModel)]="userService.selectedUser.user_name"
+                placeholder="Enter your Name">
+        </div>
+        <div>
+            <label>Email :</label><br>
+            <input type="email" name="email" #name="ngModel"
+                [(ngModel)]="userService.selectedUser.email"
+                placeholder="Enter your email id">
+        </div>
+        <div>
+            <label>Phone number :</label><br>
+            <input type="text" name="phone" #name="ngModel"
+                [(ngModel)]="userService.selectedUser.phone"
+                placeholder="Enter your phone number">
+        </div>
+        <div>
+            <label>User Type :</label><br>
+            <input type="text" name="user_type" #name="ngModel" [(ngModel)]="userService.selectedUser.user_type" value="User"readonly/>
+        </div>
+        <div>
+            <label> Password :</label><br>
+            <input type="text" name="password" #name="ngModel"
+                [(ngModel)]="userService.selectedUser.password"
+                placeholder="Enter your password">
+        </div>
+    <div class="input-field col s12">
+        <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)">Reset</button>
+        <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid">Submit</button>
+    </div>
+</form>
