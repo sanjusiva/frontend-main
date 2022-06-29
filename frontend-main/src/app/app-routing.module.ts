@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChatComponent } from './chat/chat.component';
 import { CourseComponent } from './course/course.component';
 import { EditComponent } from './edit/edit.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"material",component:MaterialComponent},
   {path:"material/:id",component:MaterialComponent},
   {path:"table",component:TableComponent},
+  {path:'chat',component:ChatComponent},
   {path:"pay/:course",component:PaymentComponent},
   {path:"edit/:Domain/:course",component:EditComponent}
 ];

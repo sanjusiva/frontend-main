@@ -102,6 +102,8 @@ course_id:any;
             console.log(res);
             this.materialService.materials = res as Material[];
           })
+        //this.router.navigate(['/edit/this.thisDomain/this.course_id']);
+
       }  
       else{
         console.log(this.course_id);

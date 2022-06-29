@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.userService.showUser=this.username
       if(res==true)
       {
-        if(this.username=="Sanjitha" && this.password=="sanju123"){
+        if(this.username=="Sanju" && this.password=="sanju123"){
         this.router.navigate(['/table']);
         }
         else{

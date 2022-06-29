@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     if (form.value._id == "") {
       this.userService.postUser(form.value).subscribe((res) => {
        if(JSON.stringify(res).slice(18,22)){
-        alert("Duplicate Entries.")
+        // alert("Duplicate Entries.")
        }
         this.resetForm(form);
       });

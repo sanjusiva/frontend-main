@@ -14,6 +14,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { User } from './shared/user.model';
 import { UserService } from './shared/user.service';
 import { TableComponent } from './table/table.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TableComponent } from './table/table.component';
     MaterialComponent,
     EditComponent,
     PaymentComponent,
-    TableComponent
+    TableComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

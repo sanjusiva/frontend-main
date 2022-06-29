@@ -5,8 +5,9 @@ export class Material {
     link1: string='';
     link2: string='';
     link3: string='';
-    video1:string='';
+    video1:any='';
     video2:string='';
     video3:string='';
     cost: number=0;
+    // v1:any='';
 }

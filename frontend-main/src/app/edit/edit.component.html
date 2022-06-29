@@ -14,12 +14,12 @@
     </thead>
     <tr *ngFor="let mat of materialService.materials">
       <td>{{mat.Domain}}</td>
-      <td>{{mat.link1}</td>
-      <td>{{mat.link2}</td>
-      <td>{{mat.link3}</td>
-      <td>{{mat.video1}</td>
-      <td>{{mat.video2}</td>
-      <td>{{mat.video3}</td>
+      <td>{{mat.link1}}</td>
+      <td>{{mat.link2}}</td>
+      <td>{{mat.link3}}</td>
+      <td>{{mat.video1}}</td>
+      <td>{{mat.video2}}</td>
+      <td>{{mat.video3}}</td>
       <td>{{mat.cost}}</td>
       <!-- <td>
           <button class="action-btn" (click)="onEdit(mat)">
@@ -31,3 +31,4 @@
         </td> -->
     </tr>
   </table> 
+  <button class="btn btn-primary" [routerLink]="['/chat']">Chat</button>
