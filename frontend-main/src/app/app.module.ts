@@ -15,7 +15,6 @@ import { User } from './shared/user.model';
 import { UserService } from './shared/user.service';
 import { TableComponent } from './table/table.component';
 import { ChatComponent } from './chat/chat.component';
-
 @NgModule({
   declarations: [
     AppComponent,

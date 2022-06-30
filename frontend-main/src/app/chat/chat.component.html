@@ -19,7 +19,7 @@
                 <p *ngIf="this.userService.username==group.hostname else elsecase">
                     {{group.hostname}}:
                     {{group.message[j]}}
-                    <button [ngStyle]="{'width':'150px','border-radius': '8px'}">reply</button>
+                    <!-- <button [ngStyle]="{'width':'150px','border-radius': '8px'}">reply</button> -->
                     <!-- <button [ngStyle]="{'width':'150px','border-radius': '8px'}"(click)="onDelete(group._id)">delete</button> -->
                     <!-- group.message[j] -->
                 </p>
@@ -27,7 +27,8 @@
                   <div [ngStyle]="{'margin-left': '420px'}">
                     {{group.hostname}}:
                     {{group.message[j]}}
-                    <button [ngStyle]="{'width':'150px','border-radius': '8px'}">reply</button>
+                   <p> {{group.reply|json}} </p>
+                    <button [ngStyle]="{'width':'150px','border-radius': '8px'}"(click)="onReply(group.hostname,group.message[j])">reply</button>
                     <!-- <button [ngStyle]="{'width':'150px','border-radius': '8px'}">delete</button> -->
                     </div>
                 </ng-template>
@@ -38,6 +39,10 @@
 </div>
 <form #chatForm="ngForm">
     <input type="text" id="hostname" [(ngModel)]="hostname" name="hostname" value="hostname"readonly><br>
-    <input type="text" id="message" [(ngModel)]="message" name="message"><br>
+    <input type="text" id="message" [(ngModel)]="message" name="message" placeholder="Message"><br>
+    <p *ngIf="display==true">
+    <input type="text" id="message" [(ngModel)]="repMsg" name="repMsg" placeholder="repMsg" value="repMsg" readonly><br>
+    <input type="text" id="reply" [(ngModel)]="reply" name="reply" placeholder="Reply" autofocus><br>
+    </p>
     <input type="button" value="Send" (click)="onSubmit(chatForm)">  
 </form>
