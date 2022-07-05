@@ -10,44 +10,30 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  error: any;
   constructor(private userService: UserService, private router: Router) { }
   username: string = '';
   password: string = '';
 
-  // display(formData: NgForm) {
-  //   console.log(formData.value);
-  //   if (this.username == "Sanju" && this.psw == "sanju123") {
-  //     console.warn("you are admin");
-  //     //this.username='Sanju';
-  //     //console.log(this.userService.getDomainName());
-      
-  //     this.userService.getUsername(this.username);
-  //     this.router.navigate(['/material']);
-  //   }
-  //   else {
-  //     this.userService.getUsername(this.username);
-  //     this.router.navigate(['/course']);
-  //   }
-  // }
   ngOnInit(): void {
   }
   onSubmit() {
-    this.userService.getUsername(this.username,this.password).subscribe((res) => {
-      //this.userService.users = res as User[];
-     //this.userService.getCurrentUser(this.username)
-        this.userService.showUser=this.username
-      if(res==true)
-      {
-        if(this.username=="Sanju" && this.password=="sanju123"){
+    this.userService.getUsername(this.username, this.password).subscribe((res) => {
+      this.userService.showUser=this.username
+      console.log(res);  
+      if (Object.values(res)[0] == "Admin") {
         this.router.navigate(['/table']);
-        }
-        else{
+      }
+      else if (Object.values(res)[0] == "User") {
         this.router.navigate(['/course']);
-        }
       }
-      else{
-         alert("Invalid username or password");      
+      else if (Object.values(res)[0] == "invalid user") {
+        alert("Invalid username or password");
       }
+    },(err)=>{
+      this.error=err.message;
+      console.log(err.error.message);
+      
     });
   }
 }

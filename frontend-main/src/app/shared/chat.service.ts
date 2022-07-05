@@ -16,8 +16,6 @@ newRep:any;
   readonly baseURL = 'http://localhost:3000/chats';
   constructor(private http: HttpClient,public userService:UserService) { }
   postMsg(chat:Chat) {
-    console.log(chat.hostname);
-    console.log(this.userService.username); 
     return this.http.post(this.baseURL,chat);
   }
   putMsg(chat: Chat) {

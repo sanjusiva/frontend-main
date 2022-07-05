@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,12 +9,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CourseComponent } from './course/course.component';
 import { MaterialComponent } from './material/material.component';
-import { EditComponent } from './edit/edit.component';
 import { PaymentComponent } from './payment/payment.component';
 import { User } from './shared/user.model';
 import { UserService } from './shared/user.service';
 import { TableComponent } from './table/table.component';
 import { ChatComponent } from './chat/chat.component';
+import { ShowMaterialComponent } from './show-material/show-material.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,16 +22,17 @@ import { ChatComponent } from './chat/chat.component';
     RegisterComponent,
     CourseComponent,
     MaterialComponent,
-    EditComponent,
     PaymentComponent,
     TableComponent,
-    ChatComponent
+    ChatComponent,
+    ShowMaterialComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

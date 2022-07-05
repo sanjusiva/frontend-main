@@ -22,8 +22,6 @@ export class TableComponent implements OnInit {
   onDelete(_id: string) {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.materialService.deleteMaterial(_id).subscribe((res) => {
-        console.log(res);
-        
         this.refreshEmployeeList();
       });
     }

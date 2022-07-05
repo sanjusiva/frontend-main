@@ -1,13 +1,17 @@
-<h2>Login</h2>
-<form #loginForm="ngForm">
-    <label>Name</label>
-    <input type="text"  [(ngModel)]="username" name="username" placeholder="UserName"><br>
-    <label>Password</label>
-    <input type="password"  [(ngModel)]="password" name="password"  placeholder="Password"><br>
-    <input type="button" value="Login" (click)="onSubmit()">
-    
-</form>
-
-<a routerLink="/register" class="btn btn-link">Register</a>
-
-<p >{{loginForm.value|json}}</p>
+<div class="banner">
+    <div class="content">
+        <h2>Login</h2>
+        <form #loginForm="ngForm">
+            <label>Name</label>&nbsp;
+            <input type="text" [(ngModel)]="username" name="username" placeholder="UserName"><br><br>
+            <label>Password</label>&nbsp;
+            <input type="password"  [(ngModel)]="password" name="password"  placeholder="Password"><br><br>
+            <input type="button" value="Login" (click)="onSubmit()">&nbsp;
+            <button routerLink="/register" class="btn btn-link">Register</button>
+        </form>
+        
+       
+        </div>
+        
+</div>
+<!-- <p >{{loginForm.value|json}}</p> -->

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
 import { CourseComponent } from './course/course.component';
-import { EditComponent } from './edit/edit.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialComponent } from './material/material.component';
 import { PaymentComponent } from './payment/payment.component';
 import { RegisterComponent } from './register/register.component';
+import { ShowMaterialComponent } from './show-material/show-material.component';
 import { TableComponent } from './table/table.component';
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:"table",component:TableComponent},
   {path:'chat',component:ChatComponent},
   {path:"pay/:course",component:PaymentComponent},
-  {path:"edit/:Domain/:course",component:EditComponent}
+  {path:"edit/:Domain/:course",component:ShowMaterialComponent}
 ];
 
 @NgModule({

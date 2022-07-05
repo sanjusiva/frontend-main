@@ -9,5 +9,4 @@ export class Material {
     video2:string='';
     video3:string='';
     cost: number=0;
-    // v1:any='';
 }

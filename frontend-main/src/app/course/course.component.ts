@@ -9,14 +9,14 @@ import { UserService } from '../shared/user.service';
 })
 export class CourseComponent implements OnInit {
 
-  constructor(private userService:UserService,private materialService:MaterialService) { }
+  constructor(private userService: UserService, private materialService: MaterialService) { }
   ngOnInit(): void {
-    console.log("In service"+this.userService.getUser);  
+    console.log("In service" + this.userService.getUser);
     this.userPaidCourse();
   }
-  userPaidCourse(){
-    console.log("course ts"+this.materialService.getCourse);
-    
-   }
+  userPaidCourse() {
+    console.log("course ts" + this.materialService.getCourse);
+
+  }
 }
 

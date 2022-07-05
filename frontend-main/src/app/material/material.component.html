@@ -1,4 +1,4 @@
-<form #materialForm="ngForm" (ngSubmit)="onSubmit(materialForm)">
+<!-- <form #materialForm="ngForm" (ngSubmit)="onSubmit(materialForm)">
     <input type="hidden" name="_id" #_id="ngModel"
         [(ngModel)]="materialService.selectedMaterial._id">
         <div>
@@ -55,52 +55,60 @@
                 [(ngModel)]="cost"
                 placeholder="Cost">
         </div>
-        <!-- <div>
-            <label>Video1 :</label><br>
-            <input type="file" name="v1" #name="ngModel"
-                [(ngModel)]="v1"
-                placeholder="V 1">
-        </div> -->
 <div class="input-field col s12">
-<!-- <button class="btn btn-custom right" type="button" (click)="resetForm(materialForm)">Reset</button> -->
 <button class="btn btn-custom right" type="submit" [disabled]="!materialForm.valid">Submit</button>
-<!-- <button [routerLink]="['/edit']" class="btn btn-primary">Admin View</button> -->
 </div>
-</form>
-<br>
-<!-- <table border="1">
-    <thead>
-      <tr>
-        <th>Domain</th>
-        <th>Course ID</th>
-        <th>Link1</th>
-        <th>Link2</th>
-        <th>Link3</th>
-        <th>Video1</th>
-        <th>Video2</th>
-        <th>Video3</th>
-        <th>Cost</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let mat of materialService.materials">
-      <td>{{mat.Domain}}</td>
-      <td>{{mat.course_id}}</td>
-      <td>{{mat.link1}}</td>
-      <td>{{mat.link2}}</td>
-      <td>{{mat.link3}}</td>
-      <td>{{mat.video1}}</td>
-      <td>{{mat.video2}}</td>
-      <td>{{mat.video3}}</td>
-      <td>{{mat.cost}}</td>
-      <td>
-          <button class="action-btn" (click)="onEdit(mat)">
-            <i class="material-icons">edit</i>
-          </button>
-          <button class="action-btn" (click)="onDelete(mat._id,materialForm)">
-            <i class="material-icons">delete</i>
-          </button>
-        </td>
-    </tr>
-  </table>  -->
+</form> -->
 
+<form [formGroup]="materialForm" >
+    <!-- <input type="hidden" name="_id" #_id="ngModel"
+        [(ngModel)]="materialService.selectedMaterial._id"> -->
+        <div>
+            <label> Domain: </label><br>
+            <input type="text" name="Domain" formControlName="Domain" value="Domain1" 
+                placeholder="Domain">
+        </div>
+        <div>
+            <label>Course ID :</label><br>
+            <input type="text" name="course_id" formControlName="course_id"
+                placeholder="Course Id">
+        </div>
+        <div>
+            <label>Link1 :</label><br>
+            <input type="text" name="link1" formControlName="link1"
+                placeholder="link 1">
+        </div>
+        <div>
+            <label>Link2 :</label><br>
+            <input type="text" name="link2" formControlName="link2"
+                placeholder="link 2">
+        </div>
+        <div>
+            <label>Link3 :</label><br>
+            <input type="text" name="link3" formControlName="link3"
+                placeholder="link 3">
+        </div>
+        <div>
+            <label>Video1 :</label><br>
+            <input type="text" name="video1" formControlName="video1"
+                placeholder="Video 1">
+        </div>
+        <div>
+            <label>Video2 :</label><br>
+            <input type="text" name="video2" formControlName="video2"
+                placeholder="Video 2">
+        </div>
+        <div>
+            <label>Video3 :</label><br>
+            <input type="text" name="video3" formControlName="video3"
+                placeholder="Video 3">
+        </div>
+        <div>
+            <label>Cost :</label><br>
+            <input type="text" name="cost" formControlName="cost"
+                placeholder="Cost">
+        </div>
+        <div class="input-field col s12">
+            <button class="btn btn-custom right" type="submit" (click)="onSubmit(materialForm)">Submit</button>
+        </div>
+</form>

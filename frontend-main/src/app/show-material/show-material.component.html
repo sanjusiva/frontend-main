@@ -1,4 +1,3 @@
-
 <table border="1">
     <thead>
       <tr>
@@ -12,7 +11,7 @@
         <th>Cost</th>
       </tr>
     </thead>
-    <tr *ngFor="let mat of materialService.materials">
+    <tr *ngFor="let mat of showMaterial">
       <td>{{mat.Domain}}</td>
       <td>{{mat.link1}}</td>
       <td>{{mat.link2}}</td>
@@ -21,14 +20,6 @@
       <td>{{mat.video2}}</td>
       <td>{{mat.video3}}</td>
       <td>{{mat.cost}}</td>
-      <!-- <td>
-          <button class="action-btn" (click)="onEdit(mat)">
-            <i class="material-icons">edit</i>
-          </button>
-          <button class="action-btn" (click)="onDelete(mat._id)">
-            <i class="material-icons">delete</i>
-          </button>
-        </td> -->
     </tr>
   </table> 
   <button class="btn btn-primary" [routerLink]="['/chat']">Chat</button>
