@@ -15,6 +15,12 @@ import { UserService } from './shared/user.service';
 import { TableComponent } from './table/table.component';
 import { ChatComponent } from './chat/chat.component';
 import { ShowMaterialComponent } from './show-material/show-material.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ChatMsgComponent } from './chat-msg/chat-msg.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './auth.guard';
+import { TokenCheckingService } from './shared/token-checking.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +31,9 @@ import { ShowMaterialComponent } from './show-material/show-material.component';
     PaymentComponent,
     TableComponent,
     ChatComponent,
-    ShowMaterialComponent
+    ShowMaterialComponent,
+    NavBarComponent,
+    ChatMsgComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,11 @@ import { ShowMaterialComponent } from './show-material/show-material.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService,AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenCheckingService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

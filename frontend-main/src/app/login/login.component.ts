@@ -14,26 +14,31 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
   username: string = '';
   password: string = '';
+  role:string='';
 
   ngOnInit(): void {
+    console.log(this.userService.username);
+    
   }
   onSubmit() {
     this.userService.getUsername(this.username, this.password).subscribe((res) => {
-      this.userService.showUser=this.username
-      console.log(res);  
-      if (Object.values(res)[0] == "Admin") {
+      this.userService.showUser=this.username;
+      console.log(JSON.stringify(res));
+      
+      console.log(Object.values(res)[0]);  
+      this.role=Object.values(res)[1];
+      localStorage.setItem('token',Object.values(res)[0])
+      this.userService.setUserRole=this.role
+      if (Object.values(res)[1] === "Admin") {
         this.router.navigate(['/table']);
       }
-      else if (Object.values(res)[0] == "User") {
+      else if (Object.values(res)[1] === "User") {
         this.router.navigate(['/course']);
-      }
-      else if (Object.values(res)[0] == "invalid user") {
-        alert("Invalid username or password");
       }
     },(err)=>{
       this.error=err.message;
       console.log(err.error.message);
-      
+      alert(err.error.message);
     });
   }
 }

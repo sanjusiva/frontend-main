@@ -8,7 +8,6 @@
         <th>Video1</th>
         <th>Video2</th>
         <th>Video3</th>
-        <th>Cost</th>
       </tr>
     </thead>
     <tr *ngFor="let mat of showMaterial">
@@ -19,7 +18,8 @@
       <td>{{mat.video1}}</td>
       <td>{{mat.video2}}</td>
       <td>{{mat.video3}}</td>
-      <td>{{mat.cost}}</td>
     </tr>
   </table> 
-  <button class="btn btn-primary" [routerLink]="['/chat']">Chat</button>
+  <button class="btn btn-primary" [routerLink]="['/course']">Back</button>
+
+  <!-- <button class="btn btn-primary" [routerLink]="['/chat']">Chat</button> -->

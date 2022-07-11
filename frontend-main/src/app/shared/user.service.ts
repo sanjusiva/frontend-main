@@ -13,7 +13,7 @@ export class UserService {
   //currentUser:string='';
   readonly baseURL = 'http://localhost:3000/users';
   name: string="";
-
+  role:string="";
 
   constructor(private http: HttpClient) { }
 
@@ -36,13 +36,35 @@ export class UserService {
     this.name=val;
   }
   get getUser(){
+    
     return this.name;
   }
   getPaidCourse(course:string|null){
-    return this.http.get(this.baseURL+`/${course}`+`/${this.name}`+`/${this.name}`);
+    console.log(this.name);
+    
+    return this.http.get(this.baseURL+`/${course}`+`/${this.name}`+`/list`);
   }
   buyCourse(course:any,name:string,){
     return this.http.put(this.baseURL+`/${course}`+`/${name}`,User);
     
+  }
+
+  set setUserRole(val:string){
+    this.role=val;
+  }
+  get getUserRole(){
+    return this.role;
+  }
+
+  loggedIn(){
+    return this.getUserRole
+  }
+
+  logged(){
+    return !!localStorage.getItem('token')
+  }
+
+  fetchToken(){
+    return localStorage.getItem('token')
   }
 }

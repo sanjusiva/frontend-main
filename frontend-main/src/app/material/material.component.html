@@ -60,55 +60,59 @@
 </div>
 </form> -->
 
-<form [formGroup]="materialForm" >
-    <!-- <input type="hidden" name="_id" #_id="ngModel"
-        [(ngModel)]="materialService.selectedMaterial._id"> -->
-        <div>
-            <label> Domain: </label><br>
-            <input type="text" name="Domain" formControlName="Domain" value="Domain1" 
-                placeholder="Domain">
-        </div>
-        <div>
-            <label>Course ID :</label><br>
-            <input type="text" name="course_id" formControlName="course_id"
-                placeholder="Course Id">
-        </div>
-        <div>
-            <label>Link1 :</label><br>
-            <input type="text" name="link1" formControlName="link1"
-                placeholder="link 1">
-        </div>
-        <div>
-            <label>Link2 :</label><br>
-            <input type="text" name="link2" formControlName="link2"
-                placeholder="link 2">
-        </div>
-        <div>
-            <label>Link3 :</label><br>
-            <input type="text" name="link3" formControlName="link3"
-                placeholder="link 3">
-        </div>
-        <div>
-            <label>Video1 :</label><br>
-            <input type="text" name="video1" formControlName="video1"
-                placeholder="Video 1">
-        </div>
-        <div>
-            <label>Video2 :</label><br>
-            <input type="text" name="video2" formControlName="video2"
-                placeholder="Video 2">
-        </div>
-        <div>
-            <label>Video3 :</label><br>
-            <input type="text" name="video3" formControlName="video3"
-                placeholder="Video 3">
-        </div>
-        <div>
-            <label>Cost :</label><br>
-            <input type="text" name="cost" formControlName="cost"
-                placeholder="Cost">
-        </div>
-        <div class="input-field col s12">
-            <button class="btn btn-custom right" type="submit" (click)="onSubmit(materialForm)">Submit</button>
-        </div>
-</form>
+<div class="banner">
+    <div class="content">
+        <form [formGroup]="materialForm" >
+            <!-- <input type="hidden" name="_id" #_id="ngModel"
+                [(ngModel)]="materialService.selectedMaterial._id"> -->
+                <div>
+                    <label> Domain: </label><br>
+                    <input type="text" name="Domain" formControlName="Domain"  
+                        placeholder="Domain">
+                </div>
+                <div>
+                    <label>Course ID :</label><br>
+                    <input type="text" name="course_id" formControlName="course_id"
+                        placeholder="Course Id">
+                </div>
+                <div>
+                    <label>Link1 :</label><br>
+                    <input type="text" name="link1" formControlName="link1"
+                        placeholder="link 1">
+                </div>
+                <div>
+                    <label>Link2 :</label><br>
+                    <input type="text" name="link2" formControlName="link2"
+                        placeholder="link 2">
+                </div>
+                <div>
+                    <label>Link3 :</label><br>
+                    <input type="text" name="link3" formControlName="link3"
+                        placeholder="link 3">
+                </div>
+                <div>
+                    <label>Video1 :</label><br>
+                    <input type="text" name="video1" formControlName="video1"
+                        placeholder="Video 1">
+                </div>
+                <div>
+                    <label>Video2 :</label><br>
+                    <input type="text" name="video2" formControlName="video2"
+                        placeholder="Video 2">
+                </div>
+                <div>
+                    <label>Video3 :</label><br>
+                    <input type="text" name="video3" formControlName="video3"
+                        placeholder="Video 3">
+                </div>
+                <div>
+                    <label>Cost :</label><br>
+                    <input type="text" name="cost" formControlName="cost"
+                        placeholder="Cost">
+                </div>
+                <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="submit" (click)="onSubmit(materialForm)">Submit</button>
+                </div>
+        </form>
+    </div>
+</div>

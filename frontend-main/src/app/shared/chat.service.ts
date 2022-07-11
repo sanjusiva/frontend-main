@@ -42,9 +42,11 @@ newRep:any;
   
     getMessageList() {
       return this.http.get(this.baseURL);
+      
     }
     getRepMessageList(chat:Chat,repmsg:string) {
       console.log(this.getRepMsg,repmsg);
+      console.log(chat);
       return this.http.get(this.baseURL+ `/${this.getRepMsg}`+`/${repmsg}`);
       
     }

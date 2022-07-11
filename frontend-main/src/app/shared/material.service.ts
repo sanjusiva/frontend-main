@@ -37,9 +37,9 @@ export class MaterialService {
     return this.http.get(this.baseURL + `/${Domain}` + `/${course}`);
   }
 
-  getCourseId(Domain: string | null) {
-    return this.http.get(this.baseURL + `/${Domain}`);
-  }
+  // getCourseId(Domain: string | null) {
+  //   return this.http.get(this.baseURL + `/${Domain}`);
+  // }
 
   getWithout(Domain: string | null) {
     console.log(this.http.get(this.baseURL + `/${Domain}`));
@@ -49,9 +49,9 @@ export class MaterialService {
     return this.http.put(this.baseURL + `/${this.getMatId}`, mat);
   }
 
-  putMaterialList(id: any, mat: Material) {
-    return this.http.put(this.baseURL + `/${id}`, mat);
-  }
+  // putMaterialList(id: any, mat: Material) {
+  //   return this.http.put(this.baseURL + `/${id}`, mat);
+  // }
 
   deleteMaterial(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
@@ -71,7 +71,7 @@ export class MaterialService {
     console.log("dddd");
     // const courses = course;
     // return this.http.get(this.baseURL + `${courses}`);
-    return this.http.get(this.baseURL + `/${course}` + `/${course}` + `/${course}`);
+    return this.http.get(this.baseURL +`/${course}`+ `/cost`+ `/courseCost`);
     // return this.http.get(`/${this.baseURL}` + `/${course}` + `/${course}` + `/${course}`);
 
   }

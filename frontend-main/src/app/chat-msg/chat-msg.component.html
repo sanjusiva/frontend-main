@@ -1,0 +1,26 @@
+<h2>Chat Window</h2>
+<div id="chat-space">
+    <div id="chat-window">
+        <div id="output"></div>
+        {{hostname}}:{{message}}
+        <p *ngFor="let msg of chatMsgs">
+                    {{msg.hostname}}:
+                    {{msg.message}}
+                    <!-- {{msg.hostname}}:
+                    {{msg.message[1]}}<br>
+                    {{msg.hostname}}:
+                    {{msg.message[2]}}<br>
+                {{msg.message.length}} -->
+            </p>
+        <div id="feedback"></div>
+    </div>
+</div>
+<form #chatForm="ngForm">
+    <input type="text" id="hostname" [(ngModel)]="hostname" name="hostname" value="hostname"readonly><br>
+    <input type="text" id="message" [(ngModel)]="message" name="message" placeholder="Message"><br>
+    <!-- <p *ngIf="display==true">
+    <input type="text" id="message" [(ngModel)]="repMsg" name="repMsg" placeholder="repMsg" value="repMsg" readonly><br>
+    <input type="text" id="reply" [(ngModel)]="reply" name="reply" placeholder="Reply" autofocus><br>
+    </p> -->
+    <input type="button" value="Send" (click)="onSubmit(chatForm)">  
+</form>

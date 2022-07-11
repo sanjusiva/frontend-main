@@ -14,7 +14,8 @@ export class ShowMaterialComponent implements OnInit {
   thisId = "";
   thisDomain: string | null = "";
   course_id: any;
-  showMaterial:Material[]=[]
+  showMaterial:Material[]=[];
+  error:string="";
 
   constructor(
     public materialService: MaterialService,
@@ -71,18 +72,23 @@ export class ShowMaterialComponent implements OnInit {
     console.log("onDomain domain" + this.thisDomain)
     this.userService.getPaidCourse(this.course_id).subscribe((res) => {
       console.log(res);
-      if (res == true) {
+      if (Object.values(res)[0] == "Success") {
         console.log(this.thisDomain);
 
         this.materialService.getMaterial(this.thisDomain, this.course_id).subscribe((res) => {
           console.log(res);
-          this.showMaterial = res as Material[];
+          this.showMaterial = Object.values(res)[0] as Material[];
         })
 
       }
-      else {
-        this.router.navigate(['/pay/this.course_id']);
-      }
+      // else {
+      //   this.router.navigate(['/pay/this.course_id']);
+      // }
+    },(err)=>{
+      this.error=err.message;
+      console.log(err.error.message);
+      alert(err.error.message);
+      this.router.navigate(['/pay/this.course_id']);
     });
     
   }
