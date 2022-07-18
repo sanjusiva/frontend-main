@@ -44,6 +44,9 @@ export class MaterialService {
   getCost(course: number) {
     return this.http.get(this.baseURL + `/${course}` + `/cost` + `/courseCost`);
   }
+  checkCourseId(courseId:any){
+    return this.http.get(this.baseURL + `/${courseId}` + `/courseId` + `/check`+`/checkCourseId`); 
+  }
   
   set setCourse(val: number) {
     this.course_id = val;

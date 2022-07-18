@@ -115,6 +115,10 @@ export class MaterialComponent implements OnInit {
       this.materials = res as Material[];
     });
   }
-
+  checkCourseId(courseId:number){
+    this.materialService.checkCourseId(courseId).subscribe((res)=>{
+      console.log(res);
+    })
+  }
 
 }

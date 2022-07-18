@@ -9,7 +9,7 @@
             </div>
             <div>
                 <label>Course ID :</label><br>
-                <input type="text" name="courseId" formControlName="courseId"  placeholder="Course Id"><br>
+                <input type="text" name="courseId" formControlName="courseId" (change)="checkCourseId(courseId.value)"  placeholder="Course Id"><br>
                 <span *ngIf="courseId.hasError('required') && courseId.touched" class="error"><small>domain is
                         Required</small></span>
                 <span *ngIf="courseId.hasError('pattern') && courseId.touched" class="error"><small>Invalid

@@ -2,25 +2,16 @@
     <div class="content">
         <h2>Login</h2>
         <form #loginForm="ngForm" class="container">
-            <div class="col-6">
-                <label class="form-label">Name</label>
-                <input type="text" [(ngModel)]="username" name="username" placeholder="UserName"
-                    class="form-control form-control-lg">
-            </div>
-            <div class="col-6">
-                <label class="form-label">Password</label>
-                <input type="password" [(ngModel)]="password" name="password" placeholder="Password"
-                    class="form-control form-control-lg">
-            </div>
+            <label><strong>Name</strong></label>
+            <input type="text" [(ngModel)]="username" name="username" placeholder="UserName"
+                class="form-control form-control-lg">
+            <label><strong>Password</strong></label>
+            <input type="password" [(ngModel)]="password" name="password" placeholder="Password"
+                class="form-control form-control-lg"><br>
             <div class="buttons">
-            <button class="btn btn-primary mr-5" value="Login" (click)="onSubmit(loginForm)">Login</button>
-            <button routerLink="/register" class="btn btn-primary">Register</button>
+                <button class="btn btn-primary mr-5 login" value="Login" (click)="onSubmit(loginForm)">Login</button>
+                <button routerLink="/register" class="btn btn-primary register">Register</button>
             </div>
         </form>
-
-
-
     </div>
-
 </div>
-<!-- <p >{{loginForm.value|json}}</p> -->

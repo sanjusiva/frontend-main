@@ -1,53 +1,85 @@
+// .banner{
+//     background-image: url('../../assets/img/login.webp');
+//     height: 688px;
+//     background-position: center top;
+//     background-size: cover;
+// }
+
+// .content h2{
+//     color:black;
+//     font-size: 60px;
+//     font-weight: bold;
+//     top: 25%;
+//     left: 20%;
+//     position: absolute;
+// }
+
+// .content form{
+//     color: black;
+//     font-size: 30px;
+//     font-weight: bold;
+//     top: 40%;
+//     left: 15%;
+//     position: absolute;
+//     height: 200px;
+//     width: 50%;
+//     // margin: 100px 300px;
+// }
+
+// input[type=text],[type=password]{
+//     height: 25px;
+// }
+// button{
+//     text-decoration: none;
+//     background-color:green;
+//     color:#fff;
+//     padding: 10px 10px;
+//     border-radius: 5px;
+//     font-size: 18px;
+//     margin-bottom:20px ;
+// }
+// input[type=button]{
+//     text-decoration: none;
+//     background-color:green;
+//     color:#fff;
+//     padding: 10px 10px;
+//     border-radius: 5px;
+//     font-size: 18px;
+//     margin-bottom:20px ;
+// }
+// .buttons{
+// margin-top: 60px;
+// margin-left: 60px;
+// }
+.content{
+    width: 400px;
+    height: 300px;
+    margin-left: 530px;
+    margin-top: 170px;
+    border: 2px solid black;
+    background-color:cadetblue
+}
+input [type=text] {
+    width:100%;
+}
+.login{
+    float: left;
+}
+.register{
+    float: right;
+}
+h2{
+    margin-left: 150px;
+}
+label{
+    font-size: 22px;
+    color:indigo;
+
+}
 .banner{
-    background-image: url('../../assets/img/login.webp');
-    height: 688px;
-    background-position: center top;
-    background-size: cover;
-}
-
-.content h2{
-    color:black;
-    font-size: 60px;
-    font-weight: bold;
-    top: 25%;
-    left: 20%;
-    position: absolute;
-}
-
-.content form{
-    color: black;
-    font-size: 30px;
-    font-weight: bold;
-    top: 40%;
-    left: 15%;
-    position: absolute;
-    height: 200px;
-    width: 50%;
-    // margin: 100px 300px;
-}
-
-input[type=text],[type=password]{
-    height: 25px;
-}
-button{
-    text-decoration: none;
-    background-color:green;
-    color:#fff;
-    padding: 10px 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    margin-bottom:20px ;
-}
-input[type=button]{
-    text-decoration: none;
-    background-color:green;
-    color:#fff;
-    padding: 10px 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    margin-bottom:20px ;
-}
-.buttons{
-margin-top: 60px;
-margin-left: 60px;
-}
+        background-image: url('../../assets/img/login.jpg');
+        height: 700px;
+        background-position: center;
+        background-size: fit;
+        padding: 10px;
+    }
