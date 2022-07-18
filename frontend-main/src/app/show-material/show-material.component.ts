@@ -11,11 +11,10 @@ import { UserService } from '../shared/user.service';
 })
 export class ShowMaterialComponent implements OnInit {
 
-  thisId = "";
+  thisId: string | null = "";
   thisDomain: string | null = "";
-  course_id: any;
-  showMaterial:Material[]=[];
-  error:string="";
+  courseId: number=0;
+  showMaterial:any=[];
 
   constructor(
     public materialService: MaterialService,
@@ -25,72 +24,42 @@ export class ShowMaterialComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.refreshEmployeeList();
     this.route.paramMap.subscribe(params => {
-      var Domain = params.get('Domain');
-      this.thisDomain = Domain;
-    });
-    this.route.paramMap.subscribe(params => {
-      var course = params.get('course');
-      this.course_id = course;
-      this.materialService.setCourse = this.course_id;
-
+      var id = params.get('id');
+      this.thisId = id;
+      console.log(this.thisId);
+      
     });
     this.onDomain();
   }
   
-  refreshEmployeeList() {
-    this.userService.getUserList().subscribe((res) => {
-      console.log(res);
-    })
-    this.materialService.getMaterialList().subscribe((res) => {
-      this.showMaterial = res as Material[];
-      console.log(res);
-
-    });
-  }
-
-  onEdit(mat: Material) {
-    this.materialService.selectedMaterial = mat;
-    this.thisId = this.materialService.getId(mat)
-    this.materialService.putMaterial(mat).subscribe((res) => {
-      this.router.navigate(['/material/', this.thisId]);
-    })
-
-
-  }
-
-  onDelete(_id: string) {
-    if (confirm('Are you sure to delete this record ?') == true) {
-      this.materialService.deleteMaterial(_id).subscribe((res) => {
-        this.refreshEmployeeList();
-      });
-    }
-  }
 
   onDomain() {
-    console.log("onDomain domain" + this.thisDomain)
-    this.userService.getPaidCourse(this.course_id).subscribe((res) => {
-      console.log(res);
+    this.materialService.getCourseId(this.thisId).subscribe((res)=>{
+      this.courseId= Object.values(res)[0].courseId;
+      this.materialService.setCourseId=this.courseId ;
+      this.userService.getPaidCourse(this.courseId).subscribe((res) => {
+        if (Object.values(res)[0] == "Success") {
+          this.materialService.getThatMat(this.thisId).subscribe((res)=>{
+            this.showMaterial =Object.values(res)[0][0];
+          })
+        }
+      },(err)=>{
+        this.router.navigate(['/pay/this.courseId']);
+      });
+     
+    })  
+  }
+  onDomain1(){
+    this.userService.getPaidCourse(this.materialService.getCourse).subscribe((res) => {
       if (Object.values(res)[0] == "Success") {
-        console.log(this.thisDomain);
-
-        this.materialService.getMaterial(this.thisDomain, this.course_id).subscribe((res) => {
-          console.log(res);
-          this.showMaterial = Object.values(res)[0] as Material[];
+        this.materialService.getThatMat(this.thisId).subscribe((res)=>{
+          this.showMaterial =Object.values(res)[0];
         })
-
       }
-      // else {
-      //   this.router.navigate(['/pay/this.course_id']);
-      // }
     },(err)=>{
-      this.error=err.message;
-      console.log(err.error.message);
-      alert(err.error.message);
-      this.router.navigate(['/pay/this.course_id']);
+      this.router.navigate(['/pay/this.materialService.getCourse']);
     });
-    
   }
 
 }

@@ -10,19 +10,15 @@ import { MaterialService } from '../shared/material.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-//userList:Material[]=[];
 error:string='';
   constructor(public materialService:MaterialService,private router:Router) { }
 
   ngOnInit(): void {
     this.materialService.getMaterialList().subscribe((res)=>{
-      console.log(res);
-      
       this.materialService.materials = Object.values(res)[0] as Material[];
 
     },(err)=>{
       this.error=err.message;
-      console.log(err.error.message);
       alert(err.error.message);
     });
   }
@@ -39,7 +35,4 @@ error:string='';
       this.materialService.materials = Object.values(res)[0] as Material[];
     });
   }
- 
-
-
 }

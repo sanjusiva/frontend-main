@@ -1,9 +1,9 @@
 export class User {
-    _id: string='';
-    user_name: string='';
-    email: string='';
-    phone: string='';
-    password: string='';
-    paidCourse_id:Array<any>=[];
-    user_type?:string='';
+    _id: string = '';
+    name: string = '';
+    email: string = '';
+    phone: string = '';
+    password: string = '';
+    paidCourseId: Array<any> = [];
+    userType?: string = '';
 }

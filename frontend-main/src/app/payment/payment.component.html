@@ -1,13 +1,23 @@
-<h2>Payment</h2>
-<form #paymentForm="ngForm">
-    <label>Amount</label>
-    <input type="text"  [(ngModel)]="cost" name="cost" value="cost"readonly><br>
-    <label>Course Id</label>
-    <input type="text"  [(ngModel)]="paidCourse_id" name="paidCourse_id" readonly><br>
-    <input type="button" value="Buy" (click)="onSubmit()">
-    <input type="button" value="Back" routerLink="/course">
-    
-</form>
+<br />
+<br />
+<h2 class="text-center">Payment</h2>
 
+<div class="d-flex justify-content-center">
 
-
+    <form #paymentForm="ngForm" class="form">
+        <div class="row g-3">
+            <label class="form-label">Amount</label>
+            <input type="text" class="form-control" [(ngModel)]="cost" name="cost" value="cost" readonly><br>
+        </div>
+        <div class="row g-3">
+            <label class="form-label">Course Id</label>
+            <input type="text" class="form-control" [(ngModel)]="paidCourseId" name="paidCourseId" readonly><br>
+        </div>
+        <br />
+        <br />
+        <div class="text-center">
+            <input type="button" class="btn btn-dark mr-5" value="Buy" (click)="onSubmit()">
+            <input type="button" class="btn btn-dark" value="Back" routerLink="/course">
+        </div>
+    </form>
+</div>

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.model'
+import { NgForm } from '@angular/forms';
+import { MaterialService } from './material.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +12,16 @@ export class UserService {
 
   selectedUser!: User;
   users: User[] = [];
-  public username: string ="";
-  //currentUser:string='';
+  public username: string = "";
   readonly baseURL = 'http://localhost:3000/users';
-  name: string="";
-  role:string="";
+  name: string = "";
+  role: string = "";
+  course_id: number=0;
 
   constructor(private http: HttpClient) { }
 
 
   postUser(user: User) {
-
     return this.http.post(this.baseURL, user);
   }
 
@@ -27,44 +29,39 @@ export class UserService {
     return this.http.get(this.baseURL);
   }
 
-  getUsername(username: string, password: string) {
-    this.username=username;
-    return this.http.get(this.baseURL + `/${username}` + `/${password}`);
+  getUsername(loginForm: NgForm) {
+    return this.http.post(this.baseURL + `/login`, loginForm);
   }
 
- set showUser(val:string){
-    this.name=val;
+  set showUser(val: string) {
+    this.name = val;
   }
-  get getUser(){
-    
+  get getUser() {
     return this.name;
   }
-  getPaidCourse(course:string|null){
-    console.log(this.name);
-    
-    return this.http.get(this.baseURL+`/${course}`+`/${this.name}`+`/list`);
+  getPaidCourse(course: number ) {
+    return this.http.get(this.baseURL + `/${course}` + `/${this.name}` + `/list`);
   }
-  buyCourse(course:any,name:string,){
-    return this.http.put(this.baseURL+`/${course}`+`/${name}`,User);
-    
+  buyCourse(course: any, name: string,) {
+    return this.http.put(this.baseURL + `/${course}` + `/${name}`, User);
   }
 
-  set setUserRole(val:string){
-    this.role=val;
+  set setUserRole(val: string) {
+    this.role = val;
   }
-  get getUserRole(){
+  get getUserRole() {
     return this.role;
   }
 
-  loggedIn(){
+  loggedIn() {
     return this.getUserRole
   }
 
-  logged(){
+  logged() {
     return !!localStorage.getItem('token')
   }
 
-  fetchToken(){
+  fetchToken() {
     return localStorage.getItem('token')
   }
 }

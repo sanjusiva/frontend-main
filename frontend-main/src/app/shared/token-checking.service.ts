@@ -18,7 +18,7 @@ export class TokenCheckingService implements HttpInterceptor {
     })
     return next.handle(tokenizedReq).pipe(
       catchError((error) => {
-        alert(error.message)
+        alert(error.error.message)
         return throwError(error)
       })
     )

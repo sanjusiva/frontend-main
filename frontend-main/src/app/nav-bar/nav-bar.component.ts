@@ -14,12 +14,10 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.username=this.userService.getUser
-    console.log(this.username);
     
   }
   logout(){
     localStorage.removeItem('token');
-    // this.username="";
     this.route.navigate(['']);
   }
 

@@ -1,23 +1,12 @@
 <nav class="navbar navbar-dark bg-dark">
-    <i class="bi bi-lamp"></i><h3>EasyGO</h3>
-    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <!-- <button *ngIf="!userService.logged()" [routerLink]="['']">Login</button> -->
-        <!-- <button *ngIf="!userService.logged()" [routerLink]="/register">Register</button> -->
 
-        <button class="text-right" *ngIf="userService.logged()" (click)="logout()">Logout </button>
+    <i class="bi bi-lamp"></i>
+    <h3>EasyGO</h3>
+
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <button class=" btn btn-light text-right" *ngIf="userService.logged()" (click)="logout()">Logout </button>
         <h2>{{username}}</h2>
     </ul>
 </nav>
 
 
-
-<!-- <nav>
-    <button (click)="logout()">Logout </button><h2>{{username}}</h2>
-</nav> -->
-
-<!-- <nav class="navbar navbar-expand-lg">
-    <p *ngIf="username=='<empty string>' else elsecase">
-        <button (click)="logout()">Logout</button>{{username}}
-    </p>
-    <ng-template #elsecase></ng-template>
-</nav> -->

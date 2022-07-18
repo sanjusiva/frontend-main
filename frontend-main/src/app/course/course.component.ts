@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Material } from '../shared/material.model';
 import { MaterialService } from '../shared/material.service';
 import { UserService } from '../shared/user.service';
 
@@ -9,14 +10,12 @@ import { UserService } from '../shared/user.service';
 })
 export class CourseComponent implements OnInit {
 
+  showImage: Material[] = [];
   constructor(private userService: UserService, private materialService: MaterialService) { }
   ngOnInit(): void {
-    console.log("In service" + this.userService.getUser);
-    this.userPaidCourse();
-  }
-  userPaidCourse() {
-    console.log("course ts" + this.materialService.getCourse);
-
+    this.materialService.getMaterialList().subscribe((res) => {
+      this.showImage = Object.values(res)[0] as Material[];
+    })
   }
 }
 

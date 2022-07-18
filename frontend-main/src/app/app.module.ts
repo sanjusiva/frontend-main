@@ -13,10 +13,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { User } from './shared/user.model';
 import { UserService } from './shared/user.service';
 import { TableComponent } from './table/table.component';
-import { ChatComponent } from './chat/chat.component';
 import { ShowMaterialComponent } from './show-material/show-material.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { ChatMsgComponent } from './chat-msg/chat-msg.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { TokenCheckingService } from './shared/token-checking.service';
@@ -30,10 +28,8 @@ import { TokenCheckingService } from './shared/token-checking.service';
     MaterialComponent,
     PaymentComponent,
     TableComponent,
-    ChatComponent,
     ShowMaterialComponent,
     NavBarComponent,
-    ChatMsgComponent
   ],
   imports: [
     BrowserModule,

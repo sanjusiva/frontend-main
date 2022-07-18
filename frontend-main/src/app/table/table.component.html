@@ -1,7 +1,8 @@
 <div class="banner">
   <div class="content">
     <br>
-    <div class="table-responsive">
+    <!-- <div class="table-responsive"> -->
+    <div table="table table-dark">
     <table class="table table-striped table-dark text-center">
       <thead class="thead-light text-center">
         <tr>
@@ -18,8 +19,8 @@
         </tr>
       </thead>
       <tr *ngFor="let mat of materialService.materials">
-        <td>{{mat.Domain}}</td>
-        <td>{{mat.course_id}}</td>
+        <td>{{mat.domain}}</td>
+        <td>{{mat.courseId}}</td>
         <td>{{mat.link1}}</td>
         <td>{{mat.link2}}</td>
         <td>{{mat.link3}}</td>

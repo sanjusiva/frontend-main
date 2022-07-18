@@ -1,88 +1,10 @@
-<!-- <div class="page">
-    <div class="col-1">
-        <h3>Angular</h3>
-        <a  [routerLink]="['/edit/Angular/100']">
-            <img src="assets/img/angular-Img.png" alt="angular Img">
-        </a>
-    </div>
-    <div class="col-1">
-        <h3>React</h3>
-        <a  [routerLink]="['/edit/React/200']">
-        <img src="assets/img/react-Img.jpg" alt="react Img">
-        </a>
-    </div>
-    <div class="col-1">
-        <h3>MongoDB</h3>
-        <img src="assets/img/mongoDb-Img.jpeg" alt="MongoDb Img">
-    </div>
-    <div class="col-1">
-        <h3>Express</h3>
-        <a  [routerLink]="['/edit/Express/300']">
-        <img src="assets/img/express-Img.png" alt="Express Img">
-        </a>
-    </div>
-    <div class="col-1">
-        <h3>NodeJS</h3>
-        <img src="assets/img/nodeJs-Img.jpeg" alt="NodeJS Img">
-    </div>
-    <div class="col-1">
-        <h3>JQuery</h3>
-        <img src="assets/img/jquery-Img.jpeg" alt="JQuery Img">
-    </div>
-</div> -->
-<br />
-<br />
-<div class="container">
+<div class="container mt-5 mb-5">
     <div class="row">
-        <div class=" col">
-            <div class="card" style="max-width: 20rem;">
-                <a [routerLink]="['/edit/Angular/100']">
-                    <img class="card-img-top" src="assets/img/angular-Img.png" alt="Card image cap">
-                    <div class="card-body text-black  text-center p-12">Angular</div>
-                </a>
-            </div>
-        </div>
-
-        <div class=" col">
-            <div class="card" style="max-width: 30rem;">
-                <a [routerLink]="['/edit/Express/300']">
-                    <img class="card-img-top" src="assets/img/expressLogo.png" alt="Card image cap">
-                    <div class="card-body text-black  text-center p-12">Express</div>
-                </a>
-            </div>
-        </div>
-        <div class=" col">
-            <div class="card" style="max-width: 20rem;">
-                <a [routerLink]="['/edit/JQuery/600']">
-                    <img class="card-img-top" src="assets/img/jquery-Img.jpeg" alt="Card image cap">
-                    <div class="card-body text-black  text-center p-12">JQuery</div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="card" style="max-width: 20rem;">
-                <a [routerLink]="['/edit/MongoDB/500']">
-                    <img class="card-img-top" src="assets/img/mongoDb-Img.jpeg" alt="Card image cap">
-                    <div class="card-body text-black  text-center p-12">Mongo DB</div>
-                </a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="max-width: 20rem;">
-                <a [routerLink]="['/edit/NodeJS/400']">
-                    <img class="card-img-top" src="assets/img/nodeJs-Img.jpeg" alt="Card image cap">
-                    <div class="card-body text-black  text-center p-12">Node JS</div>
-                </a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="max-width: 20rem;">
-                <a [routerLink]="['/edit/React/200']">
-                    <img class="card-img-top" src="assets/img/react-Img.jpg" alt="Card image cap">
-                    <div class="card-body text-black  text-center p-12">React</div>
-                </a>
+        <div class="col-lg-4 mt-3" *ngFor="let fd of showImage">
+            <div>
+                <a [routerLink]="['/edit',fd._id]"><img src="{{fd.image}}" height='200' width='350'/></a>
+                <h2>{{fd.domain}}</h2>
+                <br />
             </div>
         </div>
     </div>

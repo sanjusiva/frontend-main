@@ -1,118 +1,77 @@
-<!-- <form #materialForm="ngForm" (ngSubmit)="onSubmit(materialForm)">
-    <input type="hidden" name="_id" #_id="ngModel"
-        [(ngModel)]="materialService.selectedMaterial._id">
-        <div>
-            <label> Domain: </label><br>
-            <input type="text" name="Domain" #name="ngModel"
-                [(ngModel)]="Domain"
-                placeholder="Domain">
-        </div>
-        <div>
-            <label>Course ID :</label><br>
-            <input type="text" name="course_id" #name="ngModel"
-                [(ngModel)]="course_id"
-                placeholder="Course Id">
-        </div>
-        <div>
-            <label>Link1 :</label><br>
-            <input type="text" name="link1" #name="ngModel"
-                [(ngModel)]="link1"
-                placeholder="link 1">
-        </div>
-        <div>
-            <label>Link2 :</label><br>
-            <input type="text" name="link2" #name="ngModel"
-                [(ngModel)]="link2"
-                placeholder="link 2">
-        </div>
-        <div>
-            <label>Link3 :</label><br>
-            <input type="text" name="link3" #name="ngModel"
-                [(ngModel)]="link3"
-                placeholder="link 3">
-        </div>
-        <div>
-            <label>Video1 :</label><br>
-            <input type="text" name="video1" #name="ngModel"
-                [(ngModel)]="video1"
-                placeholder="Video 1">
-        </div>
-        <div>
-            <label>Video2 :</label><br>
-            <input type="text" name="video2" #name="ngModel"
-                [(ngModel)]="video2"
-                placeholder="Video 2">
-        </div>
-        <div>
-            <label>Video3 :</label><br>
-            <input type="text" name="video3" #name="ngModel"
-                [(ngModel)]="video3"
-                placeholder="Video 3">
-        </div>
-        <div>
-            <label>Cost :</label><br>
-            <input type="text" name="cost" #name="ngModel"
-                [(ngModel)]="cost"
-                placeholder="Cost">
-        </div>
-<div class="input-field col s12">
-<button class="btn btn-custom right" type="submit" [disabled]="!materialForm.valid">Submit</button>
-</div>
-</form> -->
-
 <div class="banner">
     <div class="content">
-        <form [formGroup]="materialForm" >
-            <!-- <input type="hidden" name="_id" #_id="ngModel"
-                [(ngModel)]="materialService.selectedMaterial._id"> -->
-                <div>
-                    <label> Domain: </label><br>
-                    <input type="text" name="Domain" formControlName="Domain"  
-                        placeholder="Domain">
-                </div>
-                <div>
-                    <label>Course ID :</label><br>
-                    <input type="text" name="course_id" formControlName="course_id"
-                        placeholder="Course Id">
-                </div>
-                <div>
-                    <label>Link1 :</label><br>
-                    <input type="text" name="link1" formControlName="link1"
-                        placeholder="link 1">
-                </div>
-                <div>
-                    <label>Link2 :</label><br>
-                    <input type="text" name="link2" formControlName="link2"
-                        placeholder="link 2">
-                </div>
-                <div>
-                    <label>Link3 :</label><br>
-                    <input type="text" name="link3" formControlName="link3"
-                        placeholder="link 3">
-                </div>
-                <div>
-                    <label>Video1 :</label><br>
-                    <input type="text" name="video1" formControlName="video1"
-                        placeholder="Video 1">
-                </div>
-                <div>
-                    <label>Video2 :</label><br>
-                    <input type="text" name="video2" formControlName="video2"
-                        placeholder="Video 2">
-                </div>
-                <div>
-                    <label>Video3 :</label><br>
-                    <input type="text" name="video3" formControlName="video3"
-                        placeholder="Video 3">
-                </div>
-                <div>
-                    <label>Cost :</label><br>
-                    <input type="text" name="cost" formControlName="cost"
-                        placeholder="Cost">
-                </div>
-                <div class="input-field col s12">
-                    <button class="btn btn-custom right" type="submit" (click)="onSubmit(materialForm)">Submit</button>
-                </div>
+        <form [formGroup]="materialForm" class="container text-center">
+            <div>
+                <label> domain: </label><br />
+                <input type="text" name="domain" formControlName="domain" placeholder="domain"><br>
+                <span *ngIf="domain.hasError('required') && domain.touched" class="error"><small>domain is
+                        Required</small></span>
+            </div>
+            <div>
+                <label>Course ID :</label><br>
+                <input type="text" name="courseId" formControlName="courseId"  placeholder="Course Id"><br>
+                <span *ngIf="courseId.hasError('required') && courseId.touched" class="error"><small>domain is
+                        Required</small></span>
+                <span *ngIf="courseId.hasError('pattern') && courseId.touched" class="error"><small>Invalid
+                    courseId</small></span>
+            </div>
+            <div>
+                <label>Link1 :</label><br>
+                <input type="text" name="link1" formControlName="link1" placeholder="link 1"><br>
+                <span *ngIf="link1.hasError('required') && link1.touched" class="error"><small>Link1 is
+                        Required</small></span>
+            </div>
+            <div>
+                <label>Link2 :</label><br>
+                <input type="text" name="link2" formControlName="link2" placeholder="link 2"><br>
+                <span *ngIf="link2.hasError('required') && link2.touched" class="error"><small>Link2 is
+                        Required</small></span>
+            </div>
+            <div>
+                <label>Link3 :</label><br>
+                <input type="text" name="link3" formControlName="link3" placeholder="link 3"><br>
+                <span *ngIf="link3.hasError('required') && link3.touched" class="error"><small>Link3 is
+                        Required</small></span>
+            </div>
+            <div>
+                <label>Video1 :</label><br>
+                <input type="text" name="video1" formControlName="video1" placeholder="Video 1"><br>
+                <span *ngIf="video1.hasError('required') && video1.touched" class="error"><small>Video1 is
+                        Required</small></span>
+            </div>
+            <div>
+                <label>Video2 :</label><br>
+                <input type="text" name="video2" formControlName="video2" placeholder="Video 2"><br>
+                <span *ngIf="video2.hasError('required') && video2.touched" class="error"><small>Video2 is
+                        Required</small></span>
+            </div>
+            <div>
+                <label>Video3 :</label><br>
+                <input type="text" name="video3" formControlName="video3" placeholder="Video 3"><br>
+                <span *ngIf="video3.hasError('required') && video3.touched" class="error"><small>Video3 is
+                        Required</small></span>
+            </div>
+            <div>
+                <label>Cost :</label><br>
+                <input type="text" name="cost" formControlName="cost" placeholder="Cost"><br>
+                <span *ngIf="cost.hasError('required') && cost.touched" class="error"><small>Cost is
+                        Required</small></span>
+                <span *ngIf="cost.hasError('pattern') && cost.touched" class="error"><small>Invalid
+                        Cost value</small></span>
+
+            </div>
+            <div>
+                <label>Course Image :</label><br>
+                <input type="text" name="image" formControlName="image"><br>
+                <span *ngIf="image.hasError('required') && image.touched" class="error"><small>Image is
+                        Required</small></span>
+            </div>
+            <br />
+            <div class="input-field col s12">
+                <button type="button" class="btn btn-light mr-5" (click)="resetValues()">Reset all</button>
+                <button class="btn btn-dark mr-5" [routerLink]="['/table']">Back</button>
+                <button class="btn btn-primary" type="submit" (click)="onSubmit(materialForm)">Submit</button>
+            </div>
         </form>
     </div>
 </div>

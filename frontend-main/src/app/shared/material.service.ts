@@ -10,10 +10,9 @@ export class MaterialService {
   selectedMaterial!: Material;
   materials: Material[] = [];
   userName: string = '';
-  course_id: any;
-  cost: any;
-  matId: any;
-  matVal: any;
+  course_id: number = 0;
+  cost: number = 0;
+  matId: string = '';
   readonly baseURL = 'http://localhost:3000/materials';
 
 
@@ -26,55 +25,40 @@ export class MaterialService {
 
   getThatMat(id: any) {
     return this.http.get(this.baseURL + `/${id}`);
-
   }
 
   getMaterialList() {
     return this.http.get(this.baseURL);
   }
 
-  getMaterial(Domain: string | null, course: string | null) {
-    return this.http.get(this.baseURL + `/${Domain}` + `/${course}`);
-  }
-
-  // getCourseId(Domain: string | null) {
-  //   return this.http.get(this.baseURL + `/${Domain}`);
-  // }
-
-  getWithout(Domain: string | null) {
-    console.log(this.http.get(this.baseURL + `/${Domain}`));
-  }
-
   putMaterial(mat: Material) {
     return this.http.put(this.baseURL + `/${this.getMatId}`, mat);
   }
 
-  // putMaterialList(id: any, mat: Material) {
-  //   return this.http.put(this.baseURL + `/${id}`, mat);
-  // }
-
   deleteMaterial(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
-
-  getId(mat: Material) {
-    return mat._id
+  getCourseId(_id: string | null) {
+    return this.http.get(this.baseURL + `/${_id}` + `/course_id`);
   }
-
-  set setCourse(val: string) {
+  getCost(course: number) {
+    return this.http.get(this.baseURL + `/${course}` + `/cost` + `/courseCost`);
+  }
+  
+  set setCourse(val: number) {
     this.course_id = val;
   }
   get getCourse() {
     return this.course_id;
   }
-  getCost(course: string) {
-    console.log("dddd");
-    // const courses = course;
-    // return this.http.get(this.baseURL + `${courses}`);
-    return this.http.get(this.baseURL +`/${course}`+ `/cost`+ `/courseCost`);
-    // return this.http.get(`/${this.baseURL}` + `/${course}` + `/${course}` + `/${course}`);
 
+  set setCourseId(val: number) {
+    this.course_id = val;
   }
+  get getCourseID() {
+    return this.course_id;
+  }
+
   set setCCost(val: any) {
     this.cost = val;
   }
@@ -88,14 +72,6 @@ export class MaterialService {
   get getMatId() {
     return this.matId;
   }
-
-  set setMat(val: any) {
-    this.matVal = val.value;
-  }
-  get getMat() {
-    return this.matVal;
-  }
-
 }
 
 

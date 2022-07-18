@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MaterialService } from '../shared/material.service';
 import { UserService } from '../shared/user.service';
 
@@ -10,26 +10,26 @@ import { UserService } from '../shared/user.service';
 })
 export class PaymentComponent implements OnInit {
 
-  cost:any;
-  paidCourse_id:any;
+  cost: number=0;
+  paidCourseId: number=0;
+  courseId: number=0;
   constructor(
-    private materialService:MaterialService,
-    private userService:UserService,
-    private router: Router) { }
+    private materialService: MaterialService,
+    private userService: UserService,
+    private router: Router,
+    public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.materialService.getCourse);
-    this.materialService.getCost(this.materialService.getCourse).subscribe((res)=>{
-      console.log(Object.values(res)[0]);
-      this.materialService.setCCost=Object.values(res)[0];
-      this.cost=this.materialService.getCCost;
-      this.paidCourse_id=this.materialService.getCourse
+    this.materialService.getCost(this.materialService.getCourseID).subscribe((res) => {
+      this.materialService.setCCost = Object.values(res)[0];
+      this.cost = this.materialService.getCCost;
+      this.paidCourseId = this.materialService.getCourseID
+
     });
-    
+
   }
-  onSubmit(){
-    this.userService.buyCourse(this.paidCourse_id,this.userService.getUser).subscribe((res)=>{
-      console.log(res);
+  onSubmit() {
+    this.userService.buyCourse(this.paidCourseId, this.userService.getUser).subscribe((res) => {
       alert(Object.values(res)[0]);
       this.router.navigate(['/course']);
     });

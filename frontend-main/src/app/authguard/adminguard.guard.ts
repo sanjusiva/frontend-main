@@ -10,7 +10,6 @@ export class AdminguardGuard implements CanActivate {
   constructor(private userService:UserService,private route:Router){}
   canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot):boolean{
     if(this.userService.loggedIn() == 'Admin'){
-      console.log(this.userService.loggedIn());
       return true;
     }
     else{
