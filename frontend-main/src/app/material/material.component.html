@@ -70,7 +70,7 @@
             <div class="input-field col s12">
                 <button type="button" class="btn btn-light mr-5" (click)="resetValues()">Reset all</button>
                 <button class="btn btn-dark mr-5" [routerLink]="['/table']">Back</button>
-                <button class="btn btn-primary" type="submit" (click)="onSubmit(materialForm)">Submit</button>
+                <button class="btn btn-primary" type="submit" [disabled]="materialForm.invalid" (click)="onSubmit(materialForm)">Submit</button>
             </div>
         </form>
     </div>

@@ -4,4 +4,20 @@
 
 .container {
     text-align: center;
+    width: 400px;
+    height: 430px;
+    border: 2px black solid;
+    margin-top: 100px;
+    background-color: cadetblue;
+}
+
+label {
+    font-size: 22px;
+    color: indigo;
+}
+.back{
+    float: left;
+}
+.right{
+    float: right;
 }

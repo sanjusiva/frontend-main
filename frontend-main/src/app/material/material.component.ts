@@ -44,24 +44,32 @@ export class MaterialComponent implements OnInit {
 
   get domain() {
     return this.materialForm.get('domain');
-  } get courseId() {
+  } 
+  get courseId() {
     return this.materialForm.get('courseId');
   }
   get link1() {
     return this.materialForm.get('link1');
-  } get link2() {
+  }
+  get link2() {
     return this.materialForm.get('link2');
-  } get link3() {
+  }
+  get link3() {
     return this.materialForm.get('link3');
-  } get video1() {
+  }
+  get video1() {
     return this.materialForm.get('video1');
-  } get video2() {
+  }
+  get video2() {
     return this.materialForm.get('video2');
-  } get video3() {
+  }
+  get video3() {
     return this.materialForm.get('video3');
-  } get cost() {
+  }
+  get cost() {
     return this.materialForm.get('cost');
-  } get image() {
+  }
+  get image() {
     return this.materialForm.get('image');
   }
 
@@ -87,7 +95,7 @@ export class MaterialComponent implements OnInit {
     if (this.materialService.getMatId != null) {
       this.materialService.getThatMat(id).subscribe(
         (res: any) => this.editMaterial(res),
-        (err: any) => console.log(err)
+        (err: any) => alert(err)
       );
     }
   }

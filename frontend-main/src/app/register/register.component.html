@@ -39,9 +39,9 @@
 
   </div><br>
   <div class="input-field col s12">
-    <button class="btn btn-dark" [routerLink]="['']">Back</button>
-    <button type="button" class="btn btn-light" (click)="resetValues()">Reset all</button>
-    <button class="btn btn-custom right" type="submit" [disabled]="userForm.invalid"
+    <button class="btn btn-dark back" [routerLink]="['']">Back</button>
+    <button type="button" class="btn btn-light reset" (click)="resetValues()">Reset all</button>
+    <button class="btn btn-primary right" type="submit" [disabled]="userForm.invalid"
       (click)="onSubmit(userForm)">Submit</button>
   </div>
 </form>

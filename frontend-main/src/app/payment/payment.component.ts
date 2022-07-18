@@ -12,7 +12,6 @@ export class PaymentComponent implements OnInit {
 
   cost: number=0;
   paidCourseId: number=0;
-  courseId: number=0;
   constructor(
     private materialService: MaterialService,
     private userService: UserService,
@@ -24,7 +23,6 @@ export class PaymentComponent implements OnInit {
       this.materialService.setCCost = Object.values(res)[0];
       this.cost = this.materialService.getCCost;
       this.paidCourseId = this.materialService.getCourseID
-
     });
 
   }

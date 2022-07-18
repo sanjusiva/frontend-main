@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators, FormControl } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 
@@ -9,22 +9,18 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./register.component.scss'],
   providers: [UserService]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent{
   userForm: FormGroup | any;
-  error: string='';
-
+  
   constructor(public userService: UserService, public router: Router, private fb: FormBuilder, private route: ActivatedRoute) {
     this.userForm = this.fb.group({
-      name: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9]{1,15}$')]),
+      name: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9]{3,15}$')]),
       email: new FormControl('', [Validators.required, Validators.pattern('([a-zA-Z0-9-_\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,5})(\.[a-zA-Z]{2,5})?$')]),
       phone: new FormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
       userType: new FormControl('User', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9!@#$%^&*]{6,16}$')])
 
     })
-  }
-  ngOnInit(): void {
-
   }
   get name() {
     return this.userForm.get('name');

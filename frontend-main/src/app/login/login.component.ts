@@ -10,7 +10,6 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  error: string='';
   constructor(private userService: UserService, private router: Router) { }
   username: string = '';
   password: string = '';
@@ -18,7 +17,6 @@ export class LoginComponent {
 
   onSubmit(loginForm: NgForm) {
     this.userService.getUsername(loginForm.value).subscribe((res) => {
-      
       this.userService.showUser = this.username;
       this.role = Object.values(res)[1];
       localStorage.setItem('token', Object.values(res)[0])

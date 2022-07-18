@@ -7,15 +7,11 @@ import { UserService } from '../shared/user.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
 
-  username:string="";
   constructor(public userService:UserService,private route:Router) { }
 
-  ngOnInit(): void {
-    this.username=this.userService.getUser
-    
-  }
+ 
   logout(){
     localStorage.removeItem('token');
     this.route.navigate(['']);

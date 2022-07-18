@@ -5,13 +5,11 @@
     background-size: cover;
 }
 .content{
-    // float: right;
     margin-left: 990px;
 }
 .container{
     margin-top: 10px;
     margin-left: -95px;
-    // background-color:blue($color: #000000);
     background-image: linear-gradient(to bottom right,blue, yellow);
     border: 1px solid blue;
     border-radius: 10px;
@@ -24,8 +22,5 @@ input{
     border-radius: 5px;
 }
 .error{
-    color: red;
-}
-.error {
     color: red;
 }
