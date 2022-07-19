@@ -37,6 +37,8 @@ export class ShowMaterialComponent implements OnInit {
   onDomain() {
     this.materialService.getCourseId(this.thisId).subscribe((res)=>{
       this.courseId= Object.values(res)[0].courseId;
+      console.log(this.courseId);
+      
       this.materialService.setCourseId=this.courseId ;
       this.userService.getPaidCourse(this.courseId).subscribe((res) => {
         if (Object.values(res)[0] == "Success") {
