@@ -7,10 +7,8 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class MaterialService {
-  selectedMaterial!: Material;
   materials: Material[] = [];
-  userName: string = '';
-  course_id: number = 0;
+  courseId: number = 0;
   cost: number = 0;
   matId: string = '';
   readonly baseURL = 'http://localhost:3000/materials';
@@ -39,7 +37,7 @@ export class MaterialService {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
   getCourseId(_id: string | null) {
-    return this.http.get(this.baseURL + `/${_id}` + `/course_id`);
+    return this.http.get(this.baseURL + `/${_id}` + `/courseId`);
   }
   getCost(course: number) {
     return this.http.get(this.baseURL + `/${course}` + `/cost` + `/courseCost`);
@@ -49,17 +47,17 @@ export class MaterialService {
   }
   
   set setCourse(val: number) {
-    this.course_id = val;
+    this.courseId = val;
   }
   get getCourse() {
-    return this.course_id;
+    return this.courseId;
   }
 
   set setCourseId(val: number) {
-    this.course_id = val;
+    this.courseId = val;
   }
   get getCourseID() {
-    return this.course_id;
+    return this.courseId;
   }
 
   set setCCost(val: any) {
@@ -76,5 +74,4 @@ export class MaterialService {
     return this.matId;
   }
 }
-
 
