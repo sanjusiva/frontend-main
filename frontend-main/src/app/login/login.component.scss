@@ -7,8 +7,8 @@
     background-color: cadetblue
 }
 
-input [type=text] {
-    width: 100%;
+input {
+    width: 33%;
 }
 
 .login {
@@ -16,7 +16,7 @@ input [type=text] {
 }
 
 .register {
-    float: right;
+    margin-left: 190px
 }
 
 h2 {
@@ -31,7 +31,8 @@ label {
 
 .banner {
     background-image: url('../../assets/img/login.jpg');
-    height: 700px;
+    height: 750px;
+    width: 100%;
     background-position: center;
     background-size: fit;
     padding: 10px;

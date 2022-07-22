@@ -9,16 +9,19 @@ import { PaymentComponent } from './payment/payment.component';
 import { RegisterComponent } from './register/register.component';
 import { ShowMaterialComponent } from './show-material/show-material.component';
 import { TableComponent } from './table/table.component';
+import { YourCoursesComponent } from './your-courses/your-courses.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  {path:"register/:id",component:RegisterComponent},
   {path:"course",component:CourseComponent,canActivate:[AuthGuard]},
   {path:"material",component:MaterialComponent,canActivate:[AdminguardGuard]},
   {path:"material/:id",component:MaterialComponent,canActivate:[AdminguardGuard]},
   {path:"table",component:TableComponent,canActivate:[AdminguardGuard]},
   {path:"pay/:course_id",component:PaymentComponent,canActivate:[AuthGuard]},
   {path:"edit/:id",component:ShowMaterialComponent,canActivate:[AuthGuard]},
+  {path:"yourCourses/:id",component:YourCoursesComponent}
 ];
 
 @NgModule({

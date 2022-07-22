@@ -5,48 +5,43 @@
         <label class="form"> UserName: </label><br>
         <input type="text" name="name" formControlName="name" placeholder="Enter UserName"><br>
         <span *ngIf="name.hasError('required') && name.touched" class="error"><small>UserName is Required</small></span>
-        <span *ngIf="name.hasError('pattern') && name.touched" class="error"><small>UserName can contain only numbers
-            and
-            Alphabet</small></span>
+        <span *ngIf="name.hasError('pattern') && name.touched" class="error"><small>UserName should have minimum length 3</small></span>
       </div>
 
       <div>
         <label>Email :</label><br>
         <input type="email" name="email" id="email" formControlName="email" placeholder="Enter your email id"><br>
         <span *ngIf="email.hasError('required') && email.touched" class="error"><small>email is Required</small></span>
-        <span *ngIf="email.hasError('pattern') && email.touched" class="error"><small>Invalid Email</small></span>
+        <span *ngIf="email.hasError('pattern') && email.touched" class="error"><small>Invalid Email [Eg:abc@gmail.com]</small></span>
 
       </div>
       <div>
         <label>Phone number :</label><br>
         <input type="text" name="phone" id="phone" formControlName="phone" placeholder="Enter your phone number"><br>
         <span *ngIf="phone.hasError('required') && phone.touched" class="error"><small>phone is Required</small></span>
-        <span *ngIf="phone.hasError('pattern') && phone.touched" class="error"><small>Invalid Phone
-            number</small></span>
+        <span *ngIf="phone.hasError('pattern') && phone.touched" class="error"><small>Invalid Phone number.Should be 10 digit and should start with either 6,7,8,9</small></span>
 
       </div>
-      <div>
+      <div  *ngIf="!userService.logged()">
         <label>User Type :</label><br>
         <input type="text" name="userType" id="userType" formControlName="userType" value="User" readonly /><br>
         <span *ngIf="userType.hasError('required') && userType.touched" class="error"><small>userType is
             Required</small></span>
 
       </div>
-      <div>
+      <div *ngIf="!userService.logged()">
         <label> Password :</label><br>
         <input type="password" name="password" id="password" formControlName="password"
           placeholder="Enter your password"><br>
         <span *ngIf="password.hasError('required') && password.touched" class="error"><small>password is
             Required</small></span>
-        <span *ngIf="password.hasError('pattern') && password.touched" class="error"><small>Invalid
-            Password</small></span>
-
+        <span *ngIf="password.hasError('pattern') && password.touched" class="error"><small>Invalid Password.Should have minimum length 6</small></span>
       </div><br/>
       <div class="input-field col s12">
-        <button class="btn btn-dark back" [routerLink]="['']">Back</button>
+        <button class="btn btn-dark back" [routerLink]="['/course']">Back</button>
         <button type="button" class="btn btn-light reset" (click)="resetValues()">Reset all</button>
-        <button class="btn btn-primary right" type="submit" [disabled]="userForm.invalid"
-          (click)="onSubmit(userForm)">Submit</button>
+        <button class="btn btn-primary right" type="submit"[disabled]='userForm.invalid && !userService.logged()'
+          (click)="onSubmit(userForm)">{{userService.getEditId=='false' || userService.getEditId==null ?'Submit':'Update'}}</button>
       </div>
     </form>
   </div>

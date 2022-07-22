@@ -13,17 +13,20 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   role: string = '';
+  id:string='';
 
   onSubmit(loginForm: NgForm) {
-    this.userService.getUsername(loginForm.value).subscribe((res) => {
+    this.userService.getUsername(loginForm.value).subscribe((res:any) => {
       this.userService.showUser = this.username;
-      this.role = Object.values(res)[1];
-      localStorage.setItem('token', Object.values(res)[0])
+      this.role = res['role'];
+      this.id=res['_id']
+      this.userService.setUserId = this.id;
+      localStorage.setItem('token', res['token'])
       this.userService.setUserRole = this.role
-      if (Object.values(res)[1] === "Admin") {
+      if (res['role'] === "Admin") {
         this.router.navigate(['/table']);
       }
-      else if (Object.values(res)[1] === "User") {
+      else if (res['role'] === "User") {
         this.router.navigate(['/course']);
       }
     });

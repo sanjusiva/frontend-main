@@ -37,7 +37,6 @@ export class MaterialService {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
   getCourseId(_id: string | null) {
-    console.log(_id);
     return this.http.get(this.baseURL + `/${_id}` + `/courseId`);
   }
   getCost(course: number) {
@@ -45,6 +44,9 @@ export class MaterialService {
   }
   checkCourseId(courseId:any){
     return this.http.get(this.baseURL + `/${courseId}` + `/courseId` + `/check`+`/checkCourseId`); 
+  }
+  getDomain(courseId:any){
+    return this.http.get(this.baseURL+`/${courseId}`+`/get`+`/domain`+`/name`+`/getDomainName`);
   }
   
   set setCourse(val: number) {
@@ -56,7 +58,6 @@ export class MaterialService {
 
   set setCourseId(val: number) {
     this.courseId = val;
-    console.log(this.courseId);
   }
   get getCourseID() {
     return this.courseId;

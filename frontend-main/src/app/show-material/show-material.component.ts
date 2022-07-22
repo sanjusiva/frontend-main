@@ -27,21 +27,17 @@ export class ShowMaterialComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       var id = params.get('id');
       this.thisId = id;
-      console.log(this.thisId);
-      
     });
     this.onDomain();
   }
   
 
   onDomain() {
-    this.materialService.getCourseId(this.thisId).subscribe((res)=>{
-      this.courseId= Object.values(res)[0].courseId;
-      console.log(this.courseId);
-      
+    this.materialService.getCourseId(this.thisId).subscribe((res:any)=>{
+      this.courseId= res['courseId'];
       this.materialService.setCourseId=this.courseId ;
-      this.userService.getPaidCourse(this.courseId).subscribe((res) => {
-        if (Object.values(res)[0] == "Success") {
+      this.userService.getPaidCourse(this.courseId).subscribe((res:any) => {
+        if (res['message'] == "Success") {
           this.materialService.getThatMat(this.thisId).subscribe((res)=>{
             this.showMaterial =Object.values(res)[0][0];
           })
@@ -52,16 +48,5 @@ export class ShowMaterialComponent implements OnInit {
      
     })  
   }
-  onDomain1(){
-    this.userService.getPaidCourse(this.materialService.getCourse).subscribe((res) => {
-      if (Object.values(res)[0] == "Success") {
-        this.materialService.getThatMat(this.thisId).subscribe((res)=>{
-          this.showMaterial =Object.values(res)[0];
-        })
-      }
-    },(err)=>{
-      this.router.navigate(['/pay/this.materialService.getCourse']);
-    });
-  }
-
+ 
 }

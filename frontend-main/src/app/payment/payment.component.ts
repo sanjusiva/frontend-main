@@ -19,16 +19,16 @@ export class PaymentComponent implements OnInit {
     public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.materialService.getCost(this.materialService.getCourseID).subscribe((res) => {
-      this.materialService.setCCost = Object.values(res)[0];
+    this.materialService.getCost(this.materialService.getCourseID).subscribe((res:any) => {
+      this.materialService.setCCost = res['cost'];
       this.cost = this.materialService.getCCost;
       this.paidCourseId = this.materialService.getCourseID
     });
 
   }
   onSubmit() {
-    this.userService.buyCourse(this.paidCourseId, this.userService.getUser).subscribe((res) => {
-      alert(Object.values(res)[0]);
+    this.userService.buyCourse(this.paidCourseId, this.userService.getUser).subscribe((res:any) => {
+      alert(res['message']);
       this.router.navigate(['/course']);
     });
   }

@@ -1,0 +1,20 @@
+<div class="container">
+    <h3 class="text-center">Your Paid Courses</h3>
+
+    <table class="table table-sm table-bordered  text-center table-secondary">
+
+        <tbody>
+            <tr>
+                <th scope="col">Course Id</th>
+                <td *ngFor="let course of paidCourses">{{course}}</td>
+
+            </tr>
+            <tr>
+                <th scope="col">Domain Name</th>
+                <td *ngFor="let domain of domainName"> {{domain}}</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <button class="btn btn-dark back" [routerLink]="['/course']">Back</button>

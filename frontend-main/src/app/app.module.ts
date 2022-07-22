@@ -10,7 +10,6 @@ import { RegisterComponent } from './register/register.component';
 import { CourseComponent } from './course/course.component';
 import { MaterialComponent } from './material/material.component';
 import { PaymentComponent } from './payment/payment.component';
-import { User } from './shared/user.model';
 import { UserService } from './shared/user.service';
 import { TableComponent } from './table/table.component';
 import { ShowMaterialComponent } from './show-material/show-material.component';
@@ -18,6 +17,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { TokenCheckingService } from './shared/token-checking.service';
+import { YourCoursesComponent } from './your-courses/your-courses.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { TokenCheckingService } from './shared/token-checking.service';
     TableComponent,
     ShowMaterialComponent,
     NavBarComponent,
+    YourCoursesComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,8 +13,8 @@ export class CourseComponent implements OnInit {
   showImage: Material[] = [];
   constructor(private userService: UserService, private materialService: MaterialService) { }
   ngOnInit(): void {
-    this.materialService.getMaterialList().subscribe((res) => {
-      this.showImage = Object.values(res)[0] as Material[];
+    this.materialService.getMaterialList().subscribe((res:any) => {
+      this.showImage = res['docs'] as Material[];
     })
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, TestabilityRegistry } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Material } from '../shared/material.model';
@@ -76,22 +76,21 @@ export class MaterialComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (!this.materialService.getMatId) {
-      this.materialService.postMaterial(form.value).subscribe((res) => {
-        alert(Object.values(res)[0]);
+      this.materialService.postMaterial(form.value).subscribe((res:any) => {
+        alert(res['message']);
         this.router.navigate(['/table']);
       });
     }
     else {
-      this.materialService.putMaterial(form.value).subscribe((res) => {
-        alert(Object.values(res)[0])
+      this.materialService.putMaterial(form.value).subscribe((res:any) => {
+        alert(res['message'])
         this.router.navigate(['/table']);
-
       });
     }
   }
 
   onEdit(id: any) {
-    this.materialService.getMaterialList();
+    // this.materialService.getMaterialList();
     if (this.materialService.getMatId != null) {
       this.materialService.getThatMat(id).subscribe(
         (res: any) => this.editMaterial(res),
@@ -125,7 +124,6 @@ export class MaterialComponent implements OnInit {
   }
   checkCourseId(courseId:number){
     this.materialService.checkCourseId(courseId).subscribe((res)=>{
-      console.log(res);
     })
   }
 

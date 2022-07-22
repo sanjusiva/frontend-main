@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Material } from '../shared/material.model';
 import { MaterialService } from '../shared/material.service';
@@ -11,12 +10,11 @@ import { MaterialService } from '../shared/material.service';
 })
 export class TableComponent implements OnInit {
 error:string='';
-  constructor(public materialService:MaterialService,private router:Router) { }
+  constructor(public materialService:MaterialService) { }
 
   ngOnInit(): void {
-    this.materialService.getMaterialList().subscribe((res)=>{
-      this.materialService.materials = Object.values(res)[0] as Material[];
-
+    this.materialService.getMaterialList().subscribe((res:any)=>{
+      this.materialService.materials = res['docs'] as Material[];
     },(err)=>{
       this.error=err.message;
       alert(err.error.message);
@@ -24,15 +22,15 @@ error:string='';
   }
   onDelete(_id: string) {
     if (confirm('Are you sure to delete this record ?') == true) {
-      this.materialService.deleteMaterial(_id).subscribe((res) => {
+      this.materialService.deleteMaterial(_id).subscribe((res:any) => {
         this.refreshEmployeeList();
-        alert(Object.values(res)[0])
+        alert(res['message'])
       });
     }
   }
   refreshEmployeeList() {
-    this.materialService.getMaterialList().subscribe((res) => {
-      this.materialService.materials = Object.values(res)[0] as Material[];
+    this.materialService.getMaterialList().subscribe((res:any) => {
+      this.materialService.materials = res['docs'] as Material[];
     });
   }
 }

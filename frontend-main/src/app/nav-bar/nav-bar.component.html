@@ -1,11 +1,17 @@
-<nav class="navbar navbar-dark bg-dark">
-
-    <i class="bi bi-lamp"></i>
-    <h3>EasyGO</h3>
-
-    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <button class=" btn btn-light text-right" *ngIf="userService.logged()" (click)="logout()">Logout </button>
-    </ul>
-</nav>
-
-
+<nav class="navbar navbar-dark bg-dark text-center" *ngIf="userService.logged()">
+    <div class="logo">
+        <i class="bi bi-lamp mr-auto">EasyGO</i>
+    </div>
+    <div class="dropdown">
+        <img src="assets/img/pic.png" *ngIf="userService.logged()"
+            class="btn btn-dark dropdown-toggle d-flexx justify-content-right" data-toggle="dropdown"
+            style="width: 55px;">
+        <ul class="dropdown-menu" *ngIf="userService.logged()">
+            <li><a (click)="profile()">Edit Profile</a></li>
+            <li *ngIf="userService.getUserRole!='Admin'&& userService.logged()"><a (click)="course()">Your Courses</a>
+            </li>
+            <li><a (click)="logout()">Logout</a></li>
+        </ul>
+    </div>
+    <h4>{{userService.logged() ? userService.getUser:''}}</h4>
+</nav> 

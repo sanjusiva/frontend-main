@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
-import { ThisReceiver } from '@angular/compiler';
+import {  HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { catchError,  throwError } from 'rxjs';
 import { UserService } from './user.service';
 
 @Injectable({

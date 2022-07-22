@@ -9,12 +9,20 @@ import { UserService } from '../shared/user.service';
 })
 export class NavBarComponent {
 
-  constructor(public userService:UserService,private route:Router) { }
+  id:string='';
+  constructor(public userService: UserService, private route: Router) { }
 
- 
-  logout(){
+
+  logout() {
     localStorage.removeItem('token');
     this.route.navigate(['']);
   }
-
+  profile() {
+    this.id=this.userService.getUserId
+    this.route.navigate(['/register',this.id])
+  }
+  course(){
+    this.id=this.userService.getUserId;
+    this.route.navigate(['/yourCourses',this.id])
+  }
 }
